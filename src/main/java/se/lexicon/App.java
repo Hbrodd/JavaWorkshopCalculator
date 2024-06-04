@@ -10,7 +10,7 @@ public class App
     public static void main( String[] args ) {
         System.out.println("Hello World!");
         Scanner input = new Scanner(System.in);
-        System.out.println("Write two number you want to either add or subtract or multiplay or ");
+        System.out.println("Write two number you want to either add or subtract or multiply or divide");
         int numberOne = input.nextInt();
         int numberTwo = input.nextInt();
         int resultat = 0;
@@ -18,7 +18,7 @@ public class App
 
         while (true) {
             if (numberTwo == 0){
-                System.out.println("You can't have a zero as the second write a new number");
+                System.out.println("You can't have a zero as the second number write a new number");
                 numberTwo = input.nextInt();
             }
             System.out.println("Write 1:If you want to add 2: If you want to subtract 3:If you want to multiply 4: If you want to divide or 5 if you want to exit the program");
@@ -60,7 +60,7 @@ public class App
                 }
             }
             System.out.println(resultat);
-            System.out.println("Write another number if you want to 1:If you want to add 2: If you want to subtract 3:If you want to multiply 4: If you want to divide or 5 if you want to exit the program\"");
+            System.out.println("Write another number to add or subtract or multiply or divide");
             numberThree = input.nextInt();
 
         }
