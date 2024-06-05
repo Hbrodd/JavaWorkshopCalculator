@@ -5,65 +5,57 @@ import java.util.Scanner;
  *
  */
 
-public class App
-{
-    public static void main( String[] args ) {
-        System.out.println("Hello World!");
+public class App {
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Write two number you want to either add or subtract or multiply or divide");
-        int numberOne = input.nextInt();
-        int numberTwo = input.nextInt();
-        int resultat = 0;
-        int numberThree = 0;
-
-        while (true) {
-            if (numberTwo == 0){
-                System.out.println("You can't have a zero as the second number write a new number");
-                numberTwo = input.nextInt();
-            }
-            System.out.println("Write 1:If you want to add 2: If you want to subtract 3:If you want to multiply 4: If you want to divide or 5 if you want to exit the program");
+        do{
+            System.out.println("Write two number you want to either add or subtract or multiply or divide");
+            int numberOne = getnumber();
+            int numberTwo = getnumber();
+            displayMeny();
             byte val = input.nextByte();
-            if (val > 0 & val <= 5 & numberThree == 0) {
-                switch (val) {
-                    case 1:
-                        resultat = numberOne + numberTwo;
-                        break;
-                    case 2:
-                        resultat = numberOne - numberTwo;
-                        break;
-                    case 3:
-                        resultat = numberOne * numberTwo;
-                        break;
-                    case 4:
-                        resultat = numberOne / numberTwo;
-                    case 5:
-                        System.exit(0);
-                        break;
-                }
-            }else if (val > 0 & val <= 5){
-                    switch (val) {
-                        case 1:
-                            resultat = resultat + numberThree;
-                            break;
-                        case 2:
-                            resultat = resultat - numberThree;
-                            break;
-                        case 3:
-                            resultat = resultat * numberThree;
-                            break;
-                        case 4:
-                            resultat = resultat / numberThree;
-                            break;
-                        case 5:
-                            System.exit(0);
-                            break;
-                }
+            if (val == 5){
+                System.out.println("Exit the program ");
+                break;
             }
-            System.out.println(resultat);
-            System.out.println("Write another number to add or subtract or multiply or divide");
-            numberThree = input.nextInt();
+            int result = operations(val, numberOne, numberTwo);
+            System.out.println("Your result is " + result);
+        }while (true);
+    }
 
+    public static void displayMeny() {
+        System.out.println("Select Operation:");
+        System.out.println("1. Addition");
+        System.out.println("2. Subtraction");
+        System.out.println("3. Multiplication");
+        System.out.println("4. Division");
+        System.out.println("5. Exit");
+        System.out.println("Enter your choice: ");
+    }
+
+    public static int getnumber() {
+        Scanner input = new Scanner(System.in);
+        int numb = input.nextInt();
+        return numb;
+    }
+
+    public static int operations(byte val, int num1, int num2) {
+        int resultat = 0;
+        switch (val) {
+            case 1:
+                resultat = num1 + num2;
+                break;
+            case 2:
+                resultat = num1 - num2;
+                break;
+            case 3:
+                resultat = num1 * num2;
+                break;
+            case 4:
+                resultat = num1 / num2;
+            default:
+                System.out.println("Invalid choice");
         }
-
-
-    }        }
+        return resultat;
+    }
+}
